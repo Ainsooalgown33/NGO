@@ -1,0 +1,214 @@
+/* styles.css */
+:root {
+    --primary: #4A148C; /* Deep Royal Purple */
+    --secondary: #D4AF37; /* Metallic Gold */
+    --light: #f4ecfb; /* Richer soft purple tint */
+    --dark: #2c1e3d; /* Dark purple for text/footers */
+    --white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    line-height: 1.6;
+    color: var(--dark);
+    /* A much more noticeable diagonal gradient from purple to gold */
+    background: linear-gradient(135deg, #e2d1f0 0%, #f2e2c2 100%);
+    background-attachment: fixed; 
+}
+
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+
+/* Navigation */
+header {
+    background: var(--white);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: relative; /* Unglued from the top */
+    z-index: 1000;
+}
+
+/* The new balanced 3-column layout */
+.main-nav {
+    display: flex;
+    justify-content: space-between; /* Spreads the 3 items perfectly */
+    align-items: center;
+    padding: 0.5rem 5%; /* Keeps it from touching the extreme edges */
+    max-width: 1600px; /* Prevents stretching infinitely on giant monitors */
+    margin: auto;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    border: none;
+    text-decoration: none;
+}
+
+/* Updated Logo Sizing to make slogan visible */
+.logo img {
+    height: 120px; 
+    max-height: 120px;
+    width: auto;
+    object-fit: contain;
+}
+
+.nav-links { 
+    display: flex; 
+    gap: 1.5rem; 
+}
+
+.nav-links a:hover { 
+    color: var(--secondary); 
+}
+
+/* Specific styling for the header Donate button */
+.btn-donate {
+    background: var(--secondary); /* Metallic Gold */
+    color: var(--dark);
+    padding: 0.7rem 1.8rem;
+    border-radius: 30px; /* Pill-shape makes it stand out */
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3); /* Soft gold shadow */
+}
+
+.btn-donate:hover {
+    background: var(--primary); /* Turns Purple on hover */
+    color: var(--secondary); /* Text turns Gold */
+    box-shadow: 0 4px 15px rgba(74, 20, 140, 0.4);
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* Layouts & Containers */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 5%;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(74, 20, 140, 0.85), rgba(44, 30, 61, 0.9)), url('https://images.unsplash.com/photo-1529390079861-591de354faf5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80') center/cover;
+    color: var(--white);
+    text-align: center;
+    padding: 8rem 5%;
+}
+
+.hero h1 { 
+    font-size: 4rem; 
+    margin-bottom: 1rem; 
+    color: var(--secondary); /* Slogan in Gold */
+    font-weight: 800;
+}
+.hero p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 2rem; }
+
+/* General Button Styles */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    border-radius: 5px;
+    font-weight: bold;
+    background: var(--secondary);
+    color: var(--dark); /* Dark text on gold button for contrast */
+    transition: 0.3s;
+    border: none;
+    cursor: pointer;
+}
+.btn:hover { 
+    background: #b5952f; 
+    color: var(--white);
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border-top: 4px solid var(--secondary); /* Gold accent on cards */
+}
+
+/* Footer */
+footer {
+    background: var(--dark);
+    color: var(--white);
+    text-align: center;
+    padding: 3rem 5%;
+    margin-top: auto;
+}
+
+.footer-contact {
+    margin-bottom: 1.5rem;
+}
+.footer-contact a {
+    color: var(--secondary);
+    font-weight: bold;
+}
+
+.social-links {
+    margin: 1.5rem 0;
+}
+.social-links a {
+    display: inline-block;
+    margin: 0 15px;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--secondary);
+    color: var(--secondary);
+    border-radius: 4px;
+    transition: 0.3s;
+}
+.social-links a:hover {
+    background: var(--secondary);
+    color: var(--dark);
+}
+
+/* Animations */
+.animate-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+}
+.animate-fade {
+    opacity: 0;
+    transition: opacity 1s ease-in;
+}
+.animate-up.show, .animate-fade.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Forms */
+.form-group { margin-bottom: 1.5rem; }
+.form-group label { display: block; margin-bottom: 0.5rem; font-weight: bold; color: var(--primary); }
+.form-group input, .form-group textarea {
+    width: 100%; padding: 0.8rem; border: 1px solid #ccc; border-radius: 4px;
+}
+
+/* Gallery Image Styles */
+.gallery-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 24px; /* Creates the rectangular oval/rounded border */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.gallery-img:hover {
+    transform: scale(1.05) translateY(-5px); /* Zooms in and lifts slightly */
+    box-shadow: 0 12px 25px rgba(74, 20, 140, 0.2); /* Soft purple shadow on hover */
+}
